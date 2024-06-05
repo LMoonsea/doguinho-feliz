@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça carinho no doguinho</title>
+    <style>
+        #container {
+            text-align: center;
+        }
+
+        #cachorro {
+            width: 600px; /* Aumentando o tamanho da imagem */
+            transition: transform 0.10s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Faça carinho no doguinho!</h1> <!-- Adicionando um título personalizado -->
+        <img id="cachorro" src="cachorro-triste.png" alt="Cachorro Triste">
+    </div>
+
+    <script>
+        var cachorro = document.getElementById("cachorro");
+
+        cachorro.addEventListener("mousemove", function (event) {
+            var x = event.clientX - cachorro.offsetLeft;
+            var y = event.clientY - cachorro.offsetTop;
+
+            var centroX = cachorro.offsetWidth / 2;
+            var centroY = cachorro.offsetHeight / 2;
+
+            if (x < centroX && y < centroY) {
+                cachorro.src = "cachorro-feliz.png";
+            } else {
+                cachorro.src = "cachorro-triste.png";
+            }
+        });
+
+        cachorro.addEventListener("mouseleave", function () {
+            cachorro.src = "cachorro-triste.png";
+        });
+    </script>
+</body>
+
+</html>
